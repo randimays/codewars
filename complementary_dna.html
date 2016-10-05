@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Codewars Exercise</title>
+</head>
+<body>
+	<script>
+	"use strict";
+	// In DNA strings, symbols "A" and "T" are complements of one another, as are "C" and "G". You have a function with one side of the DNA (string); you need to get the other complementary side. DNA strand is never empty or there is no DNA at all. Ex. DNAStrand ("ATTGC") # return "TAACG".
+	
+	var string = "ATTGC";
+	function DNAStrand(dna) {
+		var elements = ["A", "T", "G", "C"];
+		var complement = "";
+		for (var i = 0; i < dna.length; i++) {
+			var letter = dna.substring(i, i+1);
+			if (letter == elements[0]) {
+				complement += letter.replace(letter, elements[1]);
+			} else if (letter == elements[1]) {
+				complement += letter.replace(letter, elements[0]);
+			} else if (letter == elements[2]) {
+				complement += letter.replace(letter, elements[3]);
+			} else if (letter == elements[3]) {
+				complement += letter.replace(letter, elements[2]);
+			}
+		}
+		return complement;
+	}
+	console.log(DNAStrand(string));
+
+	</script>
+</body>
+</html>

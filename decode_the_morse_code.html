@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Codewars Exercise</title>
+</head>
+<body>
+	<script>
+	"use strict";
+	Write a simple Morse code decoder. A single space is used to separate the character codes and 3 spaces are used to separate words. Take morse code as input and return a decoded human-readable string.
+	var morse = {
+		".-": "A",
+		"-...": "B",
+		"-.-.": "C",
+		"-..": "D",
+		".": "E",
+		"..-.": "F",
+		"--.": "G",
+		"....": "H",
+		"..": "I",
+		".---": "J",
+		"-.-": "K",
+		".-..": "L",
+		"--": "M",
+		"-.": "N",
+		"---": "O",
+		".--.": "P",
+		"--.-": "Q",
+		".-.": "R",
+		"...": "S",
+		"-": "T",
+		"..-": "U",
+		"...-": "V",
+		".--": "W",
+		"-..-": "X",
+		"-.--": "Y",
+		"--..": "Z",
+		"-----": "0",
+		".----": "1",
+		"..---": "2",
+		"...--": "3",
+		"....-": "4",
+		".....": "5",
+		"-....": "6",
+		"--...": "7",
+		"---..": "8",
+		"----.": "9"
+	}
+	var morseCode = ".... . .-.. .-.. ---   .-. .- -. -.. ..";
+	function decodeMorse(morseCode, morse){
+		var morseArray = morseCode.split("   ");
+		morseArray.forEach(function(word, i){
+			var letters = "";
+			var characters = word.split(" ");
+			characters.forEach(function(character){
+				letters += morse[character];
+			})
+			morseArray.splice(i, 1, letters);
+		})
+		return morseArray.join(" ");
+	}
+	console.log(decodeMorse(morseCode, morse));
+
+	</script>
+</body>
+</html>

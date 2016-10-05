@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Codewars Exercise</title>
+</head>
+<body>
+	<script>
+	"use strict";
+	// Find the length of the longest substring in the given string(s) that is the same in reverse. As an example, if the input was "I like racecars that go fast", the substring "racecar" length would be 7. If the length of the input string is 0, return value must be 0.
+	
+	var sentence = "baabcd";
+	function longestPalindrome(sentence) {
+		var palindromes = [];
+		if (sentence.length > 1) {
+			for (var i = 0; i < sentence.length; i++) {
+				for (var j = i + 1; j < sentence.length; j++) {
+					var substr = sentence.substring(i, j+1);
+					if (substr == substr.split('').reverse().join('')) {
+						palindromes.push(substr);
+					}
+				}
+			}
+			if (palindromes.length) {
+				var palindromesSorted = palindromes.sort(function(a,b){
+					return b.length - a.length;
+				});
+				var longestPalindrome = palindromesSorted[0];
+				return longestPalindrome.length;
+			} return 0;
+		} else if (sentence.length == 1) {
+			return 1;
+		} return 0;
+	}
+	console.log(longestPalindrome(sentence));
+
+	</script>
+</body>
+</html>

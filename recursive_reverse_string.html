@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Codewars Exercise</title>
+</head>
+<body>
+	<script>
+	"use strict";
+	// Write a recursive function that receives str as a String and returns the same string in reverse order.
+
+	var string = "randi";
+	function reverse(str) {
+		return str.length > 1 ? reverse(str.slice(1)) + str[0] : str;
+	}
+	console.log(reverse(string));
+	
+	</script>
+</body>
+</html>
